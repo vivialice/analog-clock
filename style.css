@@ -96,8 +96,6 @@ input[type=checkbox], input[type=radio] {
 
 input[type=search] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
@@ -127,14 +125,30 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   height: 0; }
 
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-body {
-  background: papayawhip; }
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
 
-.st0 {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+body {
+  background: crimson; }
+
+.st0, .second-hand {
   fill: #2388E2; }
 
 .st1 {
@@ -143,7 +157,7 @@ body {
 .st2 {
   fill: #FF83D0; }
 
-.st3 {
+.hour-hand, .minute-hand {
   fill: #FFFFFF; }
 
 .st4 {
@@ -158,4 +172,33 @@ svg {
   display: block;
   position: relative;
   top: 50%;
-  transform: translateY(30%); }
+  -webkit-transform: translateY(30%);
+      -ms-transform: translateY(30%);
+          transform: translateY(30%); }
+
+.second-hand {
+  animation: rotate 60s steps(60, end) infinite;
+  -webkit-animation: rotate 60s steps(60, end) infinite;
+  -ms-transform-origin: 50% 88%;
+      transform-origin: 50% 88%;
+  -webkit-transform-origin: 50% 88%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; }
+
+.hour-hand {
+  animation: rotate 216000s linear infinite;
+  -webkit-animation: rotate 216000s linear infinite;
+  -ms-transform-origin: 50% 85%;
+      transform-origin: 50% 85%;
+  -webkit-transform-origin: 50% 85%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; }
+
+.minute-hand {
+  animation: rotate 3600s steps(60, end) linear infinite;
+  -webkit-animation: rotate 3600s steps(60, end) linear infinite;
+  -ms-transform-origin: 16% 50%;
+      transform-origin: 16% 50%;
+  -webkit-transform-origin: 16% 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; }

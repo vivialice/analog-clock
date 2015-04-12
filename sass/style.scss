@@ -7,18 +7,19 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 
 @import 'mixins';
+@import 'animation';
 
 
 body {
-	background: papayawhip;
+	background: crimson;
 }
 
 
 // SVG COLOURS //
-.st0{fill:#2388E2;}
+.st0, .second-hand{fill:#2388E2;}
 .st1{fill:#2ED4E5;}
 .st2{fill:#FF83D0;}
-.st3{fill:#FFFFFF;}
+.hour-hand, .minute-hand{fill:#FFFFFF;}
 .st4{fill:#CAF9F9;}
 .st5{fill:#41E7EF;}
 
@@ -30,3 +31,32 @@ svg {
 	top: 50%;
 	transform: translateY(30%);
 }
+
+.second-hand {
+	animation: rotate 60s steps(60, end) infinite;
+	-webkit-animation: rotate 60s steps(60, end) infinite;
+	transform-origin: 50% 88%;
+	-webkit-transform-origin: 50% 88%;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+
+.hour-hand {
+	animation: rotate 216000s linear infinite;
+	-webkit-animation: rotate 216000s linear infinite;
+	transform-origin: 50% 85%;
+	-webkit-transform-origin:50% 85%;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+
+.minute-hand {
+	animation: rotate 3600s steps(60, end) linear infinite;
+	-webkit-animation: rotate 3600s steps(60, end) linear infinite;
+	transform-origin: 16% 50%;
+	-webkit-transform-origin:16% 50%;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;	
+}
+
+
